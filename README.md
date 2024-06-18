@@ -1,7 +1,8 @@
 # *Simple-Terra*
 "Simple terraform Apstra script"<br>
 
-clone the git and get some simple Apstra example<br>
+clone the git and get some simple Apstra example <be>
+You can do directly under Apstra VM, do not upgrade ubuntu <br>
 
 sudo apt update <br>
 sudo apt -y install git <br>
