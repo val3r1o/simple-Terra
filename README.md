@@ -17,7 +17,7 @@ ls<br>
 
 open provider.tf and add user/pass and ip to reach Apstra VM.
 
-sudo terraform iniit <br>
+sudo terraform init <br>
 
 sudo terraform plan <br>
 
