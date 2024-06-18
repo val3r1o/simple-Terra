@@ -1,11 +1,13 @@
 # *Simple-Terra*
-"Simple terraform Apstra script"
+"Simple terraform Apstra script"<br>
 
-clone the git and get some simple Apstra example
+clone the git and get some simple Apstra example<br>
 
-sudo apt update
-sudo apt -y install git
-git clone https://github.com/val3r1o/simple-terra
-cd simple-terra
-sudo chmod 755 install.sh
-ls
+sudo apt update <br>
+sudo apt -y install git <br>
+git clone https://github.com/val3r1o/simple-terra <br>
+cd simple-terra <br>
+sudo chmod 755 install.sh <br>
+ls<br>
+
+
