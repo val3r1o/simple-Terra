@@ -1,6 +1,6 @@
 resource "apstra_datacenter_virtual_network" "terra-test" {
   name                         = "test"
-  blueprint_id                 = "Valerio_Martini_08968_Jun_SE_Demo_4211_c07775c1345e - evpn-vex-virtual"
+  blueprint_id                 = "dc1"
   type                         = "vxlan"
   routing_zone_id              = "red"
   ipv4_connectivity_enabled    = true
