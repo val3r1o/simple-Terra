@@ -13,4 +13,6 @@ sudo chmod 755 install.sh <br>
 ls<br>
 
 #run the script <br>
-./install.sh
+./install.sh <br>
+
+open provider.tf and add user/pass and ip to reach Apstra VM.
