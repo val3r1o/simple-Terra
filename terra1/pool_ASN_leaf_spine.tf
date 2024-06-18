@@ -1,5 +1,5 @@
 # Create an ASN resource pool 
-resource "apstra_asn_pool" "lab_test" {
+resource "apstra_asn_pool" "dc1" {
   name = "pool_ASN_leaf_spine"
   ranges = [
     {
