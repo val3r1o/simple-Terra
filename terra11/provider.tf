@@ -1,4 +1,4 @@
-# Terraform provder apstra
+# Terraform export for vJunOS with apstra
 terraform {
         required_providers {
                 apstra = {
@@ -10,7 +10,7 @@ terraform {
 
 # Apstra Provider Details
 provider "apstra" {
-  url                     = "https://admin:pass@172.20.114.3"
+  url                     = "https://admin:VictoriousJackal2%5E@172.20.114.3"
   tls_validation_disabled = true                         # optional
   blueprint_mutex_enabled = false
   experimental            = true
