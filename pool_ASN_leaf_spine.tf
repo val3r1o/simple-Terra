@@ -1,6 +1,6 @@
-# Create an ASN resource pool according to the instructions in the lab guide.
-resource "apstra_asn_pool" "lab_guide" {
-  name = "vpod-evpn-asn-pool"
+# Create an ASN resource pool 
+resource "apstra_asn_pool" "lab_test" {
+  name = "pool_ASN_leaf_spine"
   ranges = [
     {
       first = 65000
