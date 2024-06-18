@@ -8,11 +8,11 @@ resource "apstra_datacenter_virtual_network" "terra-test" {
   ipv4_virtual_gateway         = "192.168.10.1"
   ipv4_subnet                  = "192.168.10.0/24"
   bindings = {
-    "leaf-a" = {
-      "access_ids" = [ "leaf1", "leaf2" ]
+    "leaf1" = {
+      "access_ids" = [ "evpn_esi_001_sys001" ]
     },
-    "leaf-b" = {
-      "access_ids" = []
+    "leaf2" = {
+      "access_ids" = ["evpn_esi_001_sys001"]
     }
   }
 }
