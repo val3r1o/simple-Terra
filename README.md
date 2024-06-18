@@ -1,10 +1,11 @@
 # *Simple-Terra*
-echo "Simple terraform Apstra script"
+"Simple terraform Apstra script"
 
 clone the git and get some simple Apstra example
 
-sudo apt update 
-sudo apt install snapd
-sudo snap install terraform --classic
-terraform --version
-sudo mv provider.tf /Simple-Terra
+sudo apt update
+sudo apt -y install git
+git clone https://github.com/val3r1o/simple-Terra
+cd simple-terra
+sudo chmod 755 install.sh
+ls
