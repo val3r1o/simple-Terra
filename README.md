@@ -16,3 +16,11 @@ ls<br>
 ./install.sh <br>
 
 open provider.tf and add user/pass and ip to reach Apstra VM.
+
+sudo terraform iniit <br>
+
+sudo terraform plan <br>
+
+sudo terraform apply <be>
+
+
