@@ -5,7 +5,7 @@ clone the git and get some simple Apstra example
 
 sudo apt update
 sudo apt -y install git
-git clone https://github.com/val3r1o/simple-Terra
+git clone https://github.com/val3r1o/simple-terra
 cd simple-terra
 sudo chmod 755 install.sh
 ls
