@@ -9,7 +9,7 @@ resource "apstra_datacenter_virtual_network" "terra-test" {
   ipv4_subnet                  = "192.168.10.0/24"
   bindings = {
     "leaf-a" = {
-      "access_ids" = [ "access-a-1", "access-a-2" ]
+      "access_ids" = [ "leaf1", "leaf2" ]
     },
     "leaf-b" = {
       "access_ids" = []
