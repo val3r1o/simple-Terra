@@ -8,4 +8,4 @@ sudo snap install terraform --classic
 
 terraform --version
 
-sudo mv provider.tf /Simple-Terra
+sudo mv provider.tf /timple-terra
