@@ -12,5 +12,5 @@ cd simple-terra <br>
 sudo chmod 755 install.sh <br>
 ls<br>
 
-#run the script
+#run the script <br>
 ./install.sh
