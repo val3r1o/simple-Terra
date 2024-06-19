@@ -4,7 +4,7 @@ data "apstra_datacenter_blueprint" "terra" {
 }
 
   resource "apstra_datacenter_routing_zone" "blue" {
-    name         = "blue"
+    name         = "blue-terra"
     blueprint_id = data.apstra_datacenter_blueprint.terra.id
     vni          = 500010
 
