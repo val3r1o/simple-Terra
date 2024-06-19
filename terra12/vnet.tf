@@ -1,9 +1,7 @@
 
-# Instantiate a blueprint from the previously-created template
-  resource "apstra_datacenter_blueprint" "terra" {
-    name        = "dc1"
-    template_id = data.apstra_template_rack_based.selected.id
-  }
+data "apstra_datacenter_blueprint" "bpname" {
+  name = "dc1"
+}
 
   #ROUTING-ZONE
   resource "apstra_datacenter_routing_zone" "blue" {
