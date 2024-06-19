@@ -4,10 +4,12 @@ data "apstra_datacenter_blueprint" "terra" {
 }
 
 
-data "apstra_datacenter_routing_zones" "blue" {
-  blueprint_id = data.apstra_datacenter_blueprint.terra.id
-
-}
+  resource "apstra_datacenter_routing_zone" "blue" {
+    name         = "blue"
+    blueprint_id = apstra_datacenter_blueprint.terra.id
+    vni          = 500010
+  
+  }
 
 
 data "apstra_datacenter_systems" "leafs" {
