@@ -1,9 +1,7 @@
 
-# Instantiate a blueprint from the previously-created template
-  resource "apstra_datacenter_blueprint" "terra" {
-    name        = "dc1"
-    template_id = apstra_template_rack_based.terra.id
-  }
+data "apstra_datacenter_blueprint" "terra" {
+  name = "dc1"
+}
 
 #retrive information
 #This example outputs a set of graph db node IDs representing
