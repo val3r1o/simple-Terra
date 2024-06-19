@@ -1,5 +1,5 @@
 
-data "apstra_datacenter_blueprint" "bpname" {
+data "apstra_datacenter_blueprint" "terra" {
   name = "dc1"
 }
 
