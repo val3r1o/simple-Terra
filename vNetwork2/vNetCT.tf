@@ -50,7 +50,7 @@ data "apstra_datacenter_virtual_networks" "getvlan100" {
   apstra_datacenter_virtual_network.vlan100,
   apstra_datacenter_generic_system.FW,
   ] // needed otherwise data source will run too early
-  blueprint_id = apstra_datacenter_blueprint.pod1.id
+  blueprint_id = data.apstra_datacenter_blueprint.pod1.id
   filters = [
   {
     name = "VLAN-100"
