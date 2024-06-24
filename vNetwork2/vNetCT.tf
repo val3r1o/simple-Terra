@@ -19,19 +19,13 @@ data "apstra_datacenter_systems" "LEAVES" {
    ]
   }
 
-  # data "apstra_datacenter_virtual_network_binding_constructor" "vnet_bindng_constructor" {
-  #  blueprint_id = data.apstra_datacenter_blueprint.POD1.id
-  #  switch_ids   = data.apstra_datacenter_systems.LEAVES.ids
-  # }
-
-
 data "apstra_datacenter_virtual_network_binding_constructor" "VNET-BIND" {
   blueprint_id = data.apstra_datacenter_blueprint.POD1.id
   vlan_id      = 100 
   switch_ids   = data.apstra_datacenter_systems.LEAVES.ids
 }
 
-resource "apstra_datacenter_virtual_network" "vlan100" {
+resource "apstra_datacenter_virtual_network" "VLAN100" {
   name                         = "VLAN-100"
   blueprint_id                 = data.apstra_datacenter_blueprint.POD1.id
   type                         = "vxlan"
@@ -45,9 +39,9 @@ resource "apstra_datacenter_virtual_network" "vlan100" {
 
 //Create VLAN 100 CT :
 
-data "apstra_datacenter_virtual_networks" "getvlan100" {
+data "apstra_datacenter_virtual_networks" "GETVLAN100" {
   depends_on = [
-  apstra_datacenter_virtual_network.vlan100,
+  apstra_datacenter_virtual_network.VLAN100,
   apstra_datacenter_generic_system.GEN-SYS,
   ] // needed otherwise data source will run too early
   blueprint_id = data.apstra_datacenter_blueprint.POD1.id
@@ -58,17 +52,17 @@ data "apstra_datacenter_virtual_networks" "getvlan100" {
   ]
 }
 
-data "apstra_datacenter_ct_virtual_network_single" "taggedvlan100" {
-    vn_id = tolist(data.apstra_datacenter_virtual_networks.getvlan100.ids)[0]
+data "apstra_datacenter_ct_virtual_network_single" "TAGVLAN100" {
+    vn_id = tolist(data.apstra_datacenter_virtual_networks.GETVLAN100.ids)[0]
     tagged = true
 }
 
-resource "apstra_datacenter_connectivity_template" "CTvlan100" {
+resource "apstra_datacenter_connectivity_template" "CTVLAN100" {
   blueprint_id = data.apstra_datacenter_blueprint.POD1.id
   name         = "VLAN-100-Tagged"
   description  = "VLAN-100-Tagged"
   primitives   = [
-    data.apstra_datacenter_ct_virtual_network_single.taggedvlan100.primitive
+    data.apstra_datacenter_ct_virtual_network_single.TAGVLAN100.primitive
   ]
 }
 
@@ -94,14 +88,4 @@ resource "apstra_datacenter_connectivity_template" "CTvlan100" {
       group_label                   = "bond0"
     },
   ]
-}
-
-data "apstra_datacenter_systems" "leaf1" {
-  blueprint_id = data.apstra_datacenter_blueprint.POD1.id
-}
-data "apstra_datacenter_systems" "leaf2" {
-  blueprint_id = data.apstra_datacenter_blueprint.POD1.id
-}
-data "apstra_datacenter_systems" "leaf3" {
-  blueprint_id = data.apstra_datacenter_blueprint.POD1.id
 }
