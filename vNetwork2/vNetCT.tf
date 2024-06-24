@@ -24,16 +24,6 @@ data "apstra_datacenter_systems" "leafs" {
     switch_ids   = data.apstra_datacenter_systems.leafs.ids
   }
 
-  resource "apstra_datacenter_virtual_network" "VNnetworks" {
-    name                         = "terra-vni"
-    blueprint_id                 = data.apstra_datacenter_blueprint.pod1.id
-    type                         = "vxlan"
-    routing_zone_id              = apstra_datacenter_routing_zone.BLUE-VRF.id
-    ipv4_connectivity_enabled    = true
-    ipv4_virtual_gateway_enabled = true
-    bindings                     = data.apstra_datacenter_virtual_network_binding_constructor.vnet_bindng_constructor.bindings
-  }
-
 
 data "apstra_datacenter_virtual_network_binding_constructor" "vlan100" {
   blueprint_id = apstra_datacenter_blueprint.terraform-pod1.id
@@ -55,7 +45,7 @@ resource "apstra_datacenter_virtual_network" "vlan100" {
 
 //Create VLAN 100 CT :
 
-data "apstra_datacenter_virtual_networks" "get_vlan100" {
+data "apstra_datacenter_virtual_networks" "getvlan100" {
   depends_on = [
   apstra_datacenter_virtual_network.vlan100,
   apstra_datacenter_generic_system.FW,
@@ -68,16 +58,16 @@ data "apstra_datacenter_virtual_networks" "get_vlan100" {
   ]
 }
 
-data "apstra_datacenter_ct_virtual_network_single" "tagged_vlan100" {
-    vn_id = tolist(data.apstra_datacenter_virtual_networks.get_vlan100.ids)[0]
+data "apstra_datacenter_ct_virtual_network_single" "taggedvlan100" {
+    vn_id = tolist(data.apstra_datacenter_virtual_networks.getvlan100.ids)[0]
     tagged = true
 }
 
-resource "apstra_datacenter_connectivity_template" "ct_vlan100" {
+resource "apstra_datacenter_connectivity_template" "CTvlan100" {
   blueprint_id = apstra_datacenter_blueprint.terraform-pod1.id
   name         = "VLAN-100-Tagged"
   description  = "VLAN-100-Tagged"
   primitives   = [
-    data.apstra_datacenter_ct_virtual_network_single.tagged_vlan100.primitive
+    data.apstra_datacenter_ct_virtual_network_single.taggedvlan100.primitive
   ]
 }
