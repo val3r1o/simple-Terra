@@ -9,7 +9,7 @@ data "apstra_datacenter_blueprint" "POD1" {
     vni          = 500010
   }
 
-data "apstra_datacenter_systems" "leafs" {
+data "apstra_datacenter_systems" "LEAVES" {
     blueprint_id = data.apstra_datacenter_blueprint.POD1.id
     filters = [
       {
@@ -21,7 +21,7 @@ data "apstra_datacenter_systems" "leafs" {
 
   # data "apstra_datacenter_virtual_network_binding_constructor" "vnet_bindng_constructor" {
   #  blueprint_id = data.apstra_datacenter_blueprint.POD1.id
-  #  switch_ids   = data.apstra_datacenter_systems.leafs.ids
+  #  switch_ids   = data.apstra_datacenter_systems.LEAVES.ids
   # }
 
 
