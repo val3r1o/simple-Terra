@@ -64,7 +64,7 @@ data "apstra_datacenter_ct_virtual_network_single" "taggedvlan100" {
 }
 
 resource "apstra_datacenter_connectivity_template" "CTvlan100" {
-  blueprint_id = apstra_datacenter_blueprint.terraform-pod1.id
+  blueprint_id = apstra_datacenter_blueprint.pod1.id
   name         = "VLAN-100-Tagged"
   description  = "VLAN-100-Tagged"
   primitives   = [
@@ -73,7 +73,7 @@ resource "apstra_datacenter_connectivity_template" "CTvlan100" {
 }
 
  resource "apstra_datacenter_generic_system" "GEN-SYS" {
-  blueprint_id      = apstra_datacenter_blueprint.terraform-pod1.id
+  blueprint_id      = apstra_datacenter_blueprint.pod1.id
   name              = "Sys101"
   hostname          = "Sys101"
   links = [
@@ -97,11 +97,11 @@ resource "apstra_datacenter_connectivity_template" "CTvlan100" {
 }
 
 data "apstra_datacenter_systems" "leaf1" {
-  blueprint_id = apstra_datacenter_blueprint.terraform-pod1.id
+  blueprint_id = apstra_datacenter_blueprint.pod1.id
 }
 data "apstra_datacenter_systems" "leaf2" {
-  blueprint_id = apstra_datacenter_blueprint.terraform-pod1.id
+  blueprint_id = apstra_datacenter_blueprint.pod1.id
 }
 data "apstra_datacenter_systems" "leaf3" {
-  blueprint_id = apstra_datacenter_blueprint.terraform-pod1.id
+  blueprint_id = apstra_datacenter_blueprint.pod1.id
 }
