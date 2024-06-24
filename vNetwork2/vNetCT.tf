@@ -1,16 +1,16 @@
 
-data "apstra_datacenter_blueprint" "pod1" {
+data "apstra_datacenter_blueprint" "POD1" {
   name = "DC-1"
 }
 
   resource "apstra_datacenter_routing_zone" "BLUE-VRF" {
     name         = "blue-terra"
-    blueprint_id = data.apstra_datacenter_blueprint.pod1.id
+    blueprint_id = data.apstra_datacenter_blueprint.POD1.id
     vni          = 500010
   }
 
 data "apstra_datacenter_systems" "leafs" {
-    blueprint_id = data.apstra_datacenter_blueprint.pod1.id
+    blueprint_id = data.apstra_datacenter_blueprint.POD1.id
     filters = [
       {
       role        = "leaf"
@@ -20,20 +20,20 @@ data "apstra_datacenter_systems" "leafs" {
   }
 
   # data "apstra_datacenter_virtual_network_binding_constructor" "vnet_bindng_constructor" {
-  #  blueprint_id = data.apstra_datacenter_blueprint.pod1.id
+  #  blueprint_id = data.apstra_datacenter_blueprint.POD1.id
   #  switch_ids   = data.apstra_datacenter_systems.leafs.ids
   # }
 
 
 data "apstra_datacenter_virtual_network_binding_constructor" "VNET-BIND" {
-  blueprint_id = data.apstra_datacenter_blueprint.pod1.id
+  blueprint_id = data.apstra_datacenter_blueprint.POD1.id
   vlan_id      = 100 
   switch_ids   = data.apstra_datacenter_systems.VNET-BIND.ids)
 }
 
 resource "apstra_datacenter_virtual_network" "vlan100" {
   name                         = "VLAN-100"
-  blueprint_id                 = data.apstra_datacenter_blueprint.pod1.id
+  blueprint_id                 = data.apstra_datacenter_blueprint.POD1.id
   type                         = "vxlan"
   routing_zone_id              = apstra_datacenter_routing_zone.BLUE-VRF.id
   ipv4_connectivity_enabled    = true
@@ -50,7 +50,7 @@ data "apstra_datacenter_virtual_networks" "getvlan100" {
   apstra_datacenter_virtual_network.vlan100,
   apstra_datacenter_generic_system.GEN-SYS,
   ] // needed otherwise data source will run too early
-  blueprint_id = data.apstra_datacenter_blueprint.pod1.id
+  blueprint_id = data.apstra_datacenter_blueprint.POD1.id
   filters = [
   {
     name = "VLAN-100"
@@ -64,7 +64,7 @@ data "apstra_datacenter_ct_virtual_network_single" "taggedvlan100" {
 }
 
 resource "apstra_datacenter_connectivity_template" "CTvlan100" {
-  blueprint_id = data.apstra_datacenter_blueprint.pod1.id
+  blueprint_id = data.apstra_datacenter_blueprint.POD1.id
   name         = "VLAN-100-Tagged"
   description  = "VLAN-100-Tagged"
   primitives   = [
@@ -73,7 +73,7 @@ resource "apstra_datacenter_connectivity_template" "CTvlan100" {
 }
 
  resource "apstra_datacenter_generic_system" "GEN-SYS" {
-  blueprint_id      = data.apstra_datacenter_blueprint.pod1.id
+  blueprint_id      = data.apstra_datacenter_blueprint.POD1.id
   name              = "Sys101"
   hostname          = "Sys101"
   links = [
@@ -97,11 +97,11 @@ resource "apstra_datacenter_connectivity_template" "CTvlan100" {
 }
 
 data "apstra_datacenter_systems" "leaf1" {
-  blueprint_id = data.apstra_datacenter_blueprint.pod1.id
+  blueprint_id = data.apstra_datacenter_blueprint.POD1.id
 }
 data "apstra_datacenter_systems" "leaf2" {
-  blueprint_id = data.apstra_datacenter_blueprint.pod1.id
+  blueprint_id = data.apstra_datacenter_blueprint.POD1.id
 }
 data "apstra_datacenter_systems" "leaf3" {
-  blueprint_id = data.apstra_datacenter_blueprint.pod1.id
+  blueprint_id = data.apstra_datacenter_blueprint.POD1.id
 }
