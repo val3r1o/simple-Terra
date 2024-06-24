@@ -37,37 +37,37 @@ resource "apstra_datacenter_virtual_network" "VLAN100" {
   bindings = data.apstra_datacenter_virtual_network_binding_constructor.VNET-BIND.bindings
 }
 
- resource "apstra_datacenter_generic_system" "GEN-SYS" {
-  blueprint_id      = data.apstra_datacenter_blueprint.POD1.id
-  name              = "sys101"
-  hostname          = "sys101"
-  links = [
-    {
-      tags                          = ["SERVER"]
-      lag_mode                      = "lacp_active"
-      target_switch_id              = tolist(data.apstra_datacenter_systems.LEAVES.ids) [0] // first switch
-      target_switch_if_name         = "et-0/0/2"
-      target_switch_if_transform_id = 1
-      group_label                   = "bond0"
-    },
-    {
-      tags                          = ["SERVER"]
-      lag_mode                      = "lacp_active"
-      target_switch_id              = tolist(data.apstra_datacenter_systems.LEAVES.ids) [1] // second switch
-      target_switch_if_name         = "et-0/0/2"
-      target_switch_if_transform_id = 1
-      group_label                   = "bond0"
-    },
-  ]
-}
+// resource "apstra_datacenter_generic_system" "GEN-SYS" {
+//  blueprint_id      = data.apstra_datacenter_blueprint.POD1.id
+//  name              = "sys101"
+//  hostname          = "sys101"
+//  links = [
+//    {
+//      tags                          = ["SERVER"]
+//      lag_mode                      = "lacp_active"
+//      target_switch_id              = tolist(data.apstra_datacenter_systems.LEAVES.ids) [0] // first switch
+//      target_switch_if_name         = "et-0/0/2"
+//      target_switch_if_transform_id = 1
+//      group_label                   = "bond0"
+//    },
+//    {
+//      tags                          = ["SERVER"]
+//      lag_mode                      = "lacp_active"
+//      target_switch_id              = tolist(data.apstra_datacenter_systems.LEAVES.ids) [1] // second switch
+//      target_switch_if_name         = "et-0/0/2"
+//      target_switch_if_transform_id = 1
+//      group_label                   = "bond0"
+//    },
+//  ]
+//}
 
 //Create VLAN 100 CT :
 
 data "apstra_datacenter_virtual_networks" "GETVLAN100" {
-  depends_on = [
-  apstra_datacenter_virtual_network.VLAN100,
-  apstra_datacenter_generic_system.GEN-SYS,
-  ] // needed otherwise data source will run too early
+  //depends_on = [
+  //apstra_datacenter_virtual_network.VLAN100,
+  //apstra_datacenter_generic_system.GEN-SYS,
+  //] // needed otherwise data source will run too early
   blueprint_id = data.apstra_datacenter_blueprint.POD1.id
   filters = [
   {
