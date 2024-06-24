@@ -73,7 +73,7 @@ resource "apstra_datacenter_connectivity_template" "CTvlan100" {
 }
 
  resource "apstra_datacenter_generic_system" "GEN-SYS" {
-  blueprint_id      = apstra_datacenter_blueprint.pod1.id
+  blueprint_id      = data.apstra_datacenter_blueprint.pod1.id
   name              = "Sys101"
   hostname          = "Sys101"
   links = [
