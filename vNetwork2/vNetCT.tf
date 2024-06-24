@@ -97,11 +97,11 @@ resource "apstra_datacenter_connectivity_template" "CTvlan100" {
 }
 
 data "apstra_datacenter_systems" "leaf1" {
-  blueprint_id = apstra_datacenter_blueprint.pod1.id
+  blueprint_id = data.apstra_datacenter_blueprint.pod1.id
 }
 data "apstra_datacenter_systems" "leaf2" {
-  blueprint_id = apstra_datacenter_blueprint.pod1.id
+  blueprint_id = data.apstra_datacenter_blueprint.pod1.id
 }
 data "apstra_datacenter_systems" "leaf3" {
-  blueprint_id = apstra_datacenter_blueprint.pod1.id
+  blueprint_id = data.apstra_datacenter_blueprint.pod1.id
 }
