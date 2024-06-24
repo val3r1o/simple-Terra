@@ -74,7 +74,7 @@ resource "apstra_datacenter_connectivity_template" "CTVLAN100" {
     {
       tags                          = ["SERVER"]
       lag_mode                      = "lacp_active"
-      target_switch_id              = one(data.apstra_datacenter_systems.LEAVES.ids) // first switch
+      target_switch_id              = data.apstra_datacenter_systems.LEAVES.ids // first switch
       target_switch_if_name         = "et-0/0/10"
       target_switch_if_transform_id = 1
       group_label                   = "bond0"
@@ -82,7 +82,7 @@ resource "apstra_datacenter_connectivity_template" "CTVLAN100" {
     {
       tags                          = ["SERVER"]
       lag_mode                      = "lacp_active"
-      target_switch_id              = one(data.apstra_datacenter_systems.LEAVES.ids) // second switch
+      target_switch_id              = data.apstra_datacenter_systems.LEAVES.ids // second switch
       target_switch_if_name         = "et-0/0/10"
       target_switch_if_transform_id = 1
       group_label                   = "bond0"
