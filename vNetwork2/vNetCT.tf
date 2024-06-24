@@ -48,7 +48,7 @@ resource "apstra_datacenter_virtual_network" "vlan100" {
 data "apstra_datacenter_virtual_networks" "getvlan100" {
   depends_on = [
   apstra_datacenter_virtual_network.vlan100,
-  apstra_datacenter_generic_system.FW,
+  apstra_datacenter_generic_system.GEN-SYS,
   ] // needed otherwise data source will run too early
   blueprint_id = data.apstra_datacenter_blueprint.pod1.id
   filters = [
@@ -70,4 +70,38 @@ resource "apstra_datacenter_connectivity_template" "CTvlan100" {
   primitives   = [
     data.apstra_datacenter_ct_virtual_network_single.taggedvlan100.primitive
   ]
+}
+
+ resource "apstra_datacenter_generic_system" "GEN-SYS" {
+  blueprint_id      = apstra_datacenter_blueprint.terraform-pod1.id
+  name              = "Sys101"
+  hostname          = "Sys101"
+  links = [
+    {
+      tags                          = ["SERVER"]
+      lag_mode                      = "lacp_active"
+      target_switch_id              = one(data.apstra_datacenter_systems.leaf1.ids) // first switch
+      target_switch_if_name         = "et-0/0/24"
+      target_switch_if_transform_id = 1
+      group_label                   = "bond0"
+    },
+    {
+      tags                          = ["SERVER"]
+      lag_mode                      = "lacp_active"
+      target_switch_id              = one(data.apstra_datacenter_systems.leaf2.ids) // second switch
+      target_switch_if_name         = "et-0/0/24"
+      target_switch_if_transform_id = 1
+      group_label                   = "bond0"
+    },
+  ]
+}
+
+data "apstra_datacenter_systems" "leaf1" {
+  blueprint_id = apstra_datacenter_blueprint.terraform-pod1.id
+}
+data "apstra_datacenter_systems" "leaf2" {
+  blueprint_id = apstra_datacenter_blueprint.terraform-pod1.id
+}
+data "apstra_datacenter_systems" "leaf3" {
+  blueprint_id = apstra_datacenter_blueprint.terraform-pod1.id
 }
