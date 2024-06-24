@@ -26,14 +26,14 @@ data "apstra_datacenter_systems" "leafs" {
 
 
 data "apstra_datacenter_virtual_network_binding_constructor" "vlan100" {
-  blueprint_id = apstra_datacenter_blueprint.pod1.id
+  blueprint_id = data.apstra_datacenter_blueprint.pod1.id
   vlan_id      = 100 
-  switch_ids   = [ one(data.apstra_datacenter_systems.search-leaf1.ids)]
+  switch_ids   = [ one(data.apstra_datacenter_systems.leafs.ids)]
 }
 
 resource "apstra_datacenter_virtual_network" "vlan100" {
   name                         = "VLAN-100"
-  blueprint_id                 = apstra_datacenter_blueprint.pod1.id
+  blueprint_id                 = data.apstra_datacenter_blueprint.pod1.id
   type                         = "vxlan"
   routing_zone_id              = apstra_datacenter_routing_zone.BLUE-VRF.id
   ipv4_connectivity_enabled    = true
