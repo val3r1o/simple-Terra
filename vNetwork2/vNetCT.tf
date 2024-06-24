@@ -25,7 +25,7 @@ data "apstra_datacenter_systems" "leafs" {
   # }
 
 
-data "apstra_datacenter_virtual_network_binding_constructor" "vlan100" {
+data "apstra_datacenter_virtual_network_binding_constructor" "VLAN100" {
   blueprint_id = data.apstra_datacenter_blueprint.pod1.id
   vlan_id      = 100 
   switch_ids   = data.apstra_datacenter_systems.VLAN100.ids)
