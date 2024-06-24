@@ -59,8 +59,8 @@ data "apstra_datacenter_ct_virtual_network_single" "TAGVLAN100" {
 
 resource "apstra_datacenter_connectivity_template" "CTVLAN100" {
   blueprint_id = data.apstra_datacenter_blueprint.POD1.id
-  name         = "VLAN-100-Tagged"
-  description  = "VLAN-100-Tagged"
+  name         = "vxlan-100-blue"
+  description  = "vxlan-100-blue"
   primitives   = [
     data.apstra_datacenter_ct_virtual_network_single.TAGVLAN100.primitive
   ]
@@ -74,7 +74,7 @@ resource "apstra_datacenter_connectivity_template" "CTVLAN100" {
     {
       tags                          = ["SERVER"]
       lag_mode                      = "lacp_active"
-      target_switch_id              = data.apstra_datacenter_systems.LEAVES.ids // first switch
+      target_switch_id              = data.apstra_datacenter_systems.LEAVES.ids [1] // first switch
       target_switch_if_name         = "et-0/0/10"
       target_switch_if_transform_id = 1
       group_label                   = "bond0"
@@ -82,7 +82,7 @@ resource "apstra_datacenter_connectivity_template" "CTVLAN100" {
     {
       tags                          = ["SERVER"]
       lag_mode                      = "lacp_active"
-      target_switch_id              = data.apstra_datacenter_systems.LEAVES.ids // second switch
+      target_switch_id              = data.apstra_datacenter_systems.LEAVES.ids [2] // second switch
       target_switch_if_name         = "et-0/0/10"
       target_switch_if_transform_id = 1
       group_label                   = "bond0"
