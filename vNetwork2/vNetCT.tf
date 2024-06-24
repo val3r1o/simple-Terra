@@ -89,3 +89,16 @@ resource "apstra_datacenter_connectivity_template" "CTVLAN100" {
     data.apstra_datacenter_ct_virtual_network_single.TAGVLAN100.primitive
   ]
 }
+
+resource "apstra_datacenter_connectivity_templates_assignment" "ASSIGN-CT-LEAF1" {
+  blueprint_id              = apstra_datacenter_blueprint.POD1.id
+  application_point_id      = one(data.apstra_datacenter_systems.LEAF11.ids)
+}
+
+resource "apstra_datacenter_connectivity_templates_assignment" "ASSIGN-CT-LEAF2" {
+  blueprint_id              = apstra_datacenter_blueprint.POD1.id
+  application_point_id      = one(data.apstra_datacenter_systems.LEAF2.ids)
+  connectivity_template_ids = [
+    apstra_datacenter_connectivity_template.ct_default_route.id,
+    ]
+}
