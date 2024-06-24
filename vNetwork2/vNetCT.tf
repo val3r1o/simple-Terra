@@ -64,7 +64,7 @@ data "apstra_datacenter_ct_virtual_network_single" "taggedvlan100" {
 }
 
 resource "apstra_datacenter_connectivity_template" "CTvlan100" {
-  blueprint_id = apstra_datacenter_blueprint.pod1.id
+  blueprint_id = data.apstra_datacenter_blueprint.pod1.id
   name         = "VLAN-100-Tagged"
   description  = "VLAN-100-Tagged"
   primitives   = [
