@@ -26,7 +26,7 @@ data "apstra_datacenter_virtual_network_binding_constructor" "VNET-BIND" {
 }
 
 resource "apstra_datacenter_virtual_network" "VLAN100" {
-  name                         = "VLAN-100"
+  name                         = "vxlan-100-blue"
   blueprint_id                 = data.apstra_datacenter_blueprint.POD1.id
   type                         = "vxlan"
   routing_zone_id              = apstra_datacenter_routing_zone.BLUE-VRF.id
