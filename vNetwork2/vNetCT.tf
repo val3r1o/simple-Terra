@@ -47,7 +47,7 @@ data "apstra_datacenter_virtual_networks" "GETVLAN100" {
   blueprint_id = data.apstra_datacenter_blueprint.POD1.id
   filters = [
   {
-    name = "VLAN-100"
+    name = "vxlan-100-blue"
   },
   ]
 }
