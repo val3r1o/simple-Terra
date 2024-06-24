@@ -25,10 +25,10 @@ data "apstra_datacenter_systems" "leafs" {
   # }
 
 
-data "apstra_datacenter_virtual_network_binding_constructor" "VLAN100" {
+data "apstra_datacenter_virtual_network_binding_constructor" "VNET-BIND" {
   blueprint_id = data.apstra_datacenter_blueprint.pod1.id
   vlan_id      = 100 
-  switch_ids   = data.apstra_datacenter_systems.VLAN100.ids)
+  switch_ids   = data.apstra_datacenter_systems.VNET-BIND.ids)
 }
 
 resource "apstra_datacenter_virtual_network" "vlan100" {
@@ -40,7 +40,7 @@ resource "apstra_datacenter_virtual_network" "vlan100" {
   ipv4_virtual_gateway_enabled = true
   ipv4_virtual_gateway         = "10.0.100.1"
   ipv4_subnet                  = "10.0.100.0/24"
-  bindings = data.apstra_datacenter_virtual_network_binding_constructor.vlan100.bindings
+  bindings = data.apstra_datacenter_virtual_network_binding_constructor.VNET-BIND.bindings
 }
 
 //Create VLAN 100 CT :
