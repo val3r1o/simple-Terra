@@ -272,7 +272,7 @@ resource "apstra_interface_map" "leaf_1_QFX5120-48Y_hl1" {
 		}
 
 resource "apstra_datacenter_device_allocation" "rack1_1_hl1_001_leaf1" {
-			blueprint_id             = apstra_datacenter_blueprint.3stage-testdrive_hl1.id
+			blueprint_id             = apstra_datacenter_blueprint.stage3-testdrive_hl1.id
 			initial_interface_map_id = apstra_interface_map.leaf_1_QFX5120-48Y_hl1.id
 			node_name                = "rack1_1_hl1_001_leaf1"
 			#device_key = "" #system id of managed device
@@ -280,7 +280,7 @@ resource "apstra_datacenter_device_allocation" "rack1_1_hl1_001_leaf1" {
 		  }
 
 resource "apstra_datacenter_device_allocation" "rack1_1_hl1_001_leaf2" {
-			blueprint_id             = apstra_datacenter_blueprint.3stage-testdrive_hl1.id
+			blueprint_id             = apstra_datacenter_blueprint.stage3-testdrive_hl1.id
 			initial_interface_map_id = apstra_interface_map.leaf_1_QFX5120-48Y_hl1.id
 			node_name                = "rack1_1_hl1_001_leaf2"
 			#device_key = "" #system id of managed device
@@ -288,7 +288,7 @@ resource "apstra_datacenter_device_allocation" "rack1_1_hl1_001_leaf2" {
 		  }
 
 resource "apstra_datacenter_device_allocation" "rack1_1_hl1_002_leaf1" {
-			blueprint_id             = apstra_datacenter_blueprint.3stage-testdrive_hl1.id
+			blueprint_id             = apstra_datacenter_blueprint.stage3-testdrive_hl1.id
 			initial_interface_map_id = apstra_interface_map.leaf_1_QFX5120-48Y_hl1.id
 			node_name                = "rack1_1_hl1_002_leaf1"
 			#device_key = "" #system id of managed device
@@ -296,7 +296,7 @@ resource "apstra_datacenter_device_allocation" "rack1_1_hl1_002_leaf1" {
 		  }
 
 resource "apstra_datacenter_device_allocation" "rack1_1_hl1_002_leaf2" {
-			blueprint_id             = apstra_datacenter_blueprint.3stage-testdrive_hl1.id
+			blueprint_id             = apstra_datacenter_blueprint.stage3-testdrive_hl1.id
 			initial_interface_map_id = apstra_interface_map.leaf_1_QFX5120-48Y_hl1.id
 			node_name                = "rack1_1_hl1_002_leaf2"
 			#device_key = "" #system id of managed device
@@ -460,7 +460,7 @@ resource "apstra_interface_map" "leaf_2_QFX5120-32C_hl1" {
 		}
 
 resource "apstra_datacenter_device_allocation" "rack2_2_hl1_001_leaf1" {
-			blueprint_id             = apstra_datacenter_blueprint.3stage-testdrive_hl1.id
+			blueprint_id             = apstra_datacenter_blueprint.stage3-testdrive_hl1.id
 			initial_interface_map_id = apstra_interface_map.leaf_2_QFX5120-32C_hl1.id
 			node_name                = "rack2_2_hl1_001_leaf1"
 			#device_key = "" #system id of managed device
@@ -468,7 +468,7 @@ resource "apstra_datacenter_device_allocation" "rack2_2_hl1_001_leaf1" {
 		  }
 
 resource "apstra_datacenter_device_allocation" "rack2_2_hl1_001_leaf2" {
-			blueprint_id             = apstra_datacenter_blueprint.3stage-testdrive_hl1.id
+			blueprint_id             = apstra_datacenter_blueprint.stage3-testdrive_hl1.id
 			initial_interface_map_id = apstra_interface_map.leaf_2_QFX5120-32C_hl1.id
 			node_name                = "rack2_2_hl1_001_leaf2"
 			#device_key = "" #system id of managed device
@@ -476,7 +476,7 @@ resource "apstra_datacenter_device_allocation" "rack2_2_hl1_001_leaf2" {
 		  }
 
 resource "apstra_datacenter_device_allocation" "rack2_2_hl1_002_leaf1" {
-			blueprint_id             = apstra_datacenter_blueprint.3stage-testdrive_hl1.id
+			blueprint_id             = apstra_datacenter_blueprint.stage3-testdrive_hl1.id
 			initial_interface_map_id = apstra_interface_map.leaf_2_QFX5120-32C_hl1.id
 			node_name                = "rack2_2_hl1_002_leaf1"
 			#device_key = "" #system id of managed device
@@ -484,7 +484,7 @@ resource "apstra_datacenter_device_allocation" "rack2_2_hl1_002_leaf1" {
 		  }
 
 resource "apstra_datacenter_device_allocation" "rack2_2_hl1_002_leaf2" {
-			blueprint_id             = apstra_datacenter_blueprint.3stage-testdrive_hl1.id
+			blueprint_id             = apstra_datacenter_blueprint.stage3-testdrive_hl1.id
 			initial_interface_map_id = apstra_interface_map.leaf_2_QFX5120-32C_hl1.id
 			node_name                = "rack2_2_hl1_002_leaf2"
 			#device_key = "" #system id of managed device
@@ -603,7 +603,7 @@ resource "apstra_interface_map" "spine_1_QFX5130-32CD_hl1" {
 		}
 
 resource "apstra_datacenter_device_allocation" "spine1" {
-			blueprint_id             = apstra_datacenter_blueprint.3stage-testdrive_hl1.id
+			blueprint_id             = apstra_datacenter_blueprint.stage3-testdrive_hl1.id
 			initial_interface_map_id = apstra_interface_map.spine_1_QFX5130-32CD_hl1.id
 			node_name                = "spine1"
 			#device_key = "" #system id of managed device
@@ -611,7 +611,7 @@ resource "apstra_datacenter_device_allocation" "spine1" {
 		  }
 
 resource "apstra_datacenter_device_allocation" "spine2" {
-			blueprint_id             = apstra_datacenter_blueprint.3stage-testdrive_hl1.id
+			blueprint_id             = apstra_datacenter_blueprint.stage3-testdrive_hl1.id
 			initial_interface_map_id = apstra_interface_map.spine_1_QFX5130-32CD_hl1.id
 			node_name                = "spine2"
 			#device_key = "" #system id of managed device
@@ -633,8 +633,8 @@ resource "apstra_template_rack_based" "Stage3_Template_hl1" {
 	}
 
 # Instantiate a blueprint from a template
-resource "apstra_datacenter_blueprint" "3stage-testdrive_hl1" {
-		name        = "3stage-testdrive_hl1"
+resource "apstra_datacenter_blueprint" "stage3-testdrive_hl1" {
+		name        = "stage3-testdrive_hl1"
 		template_id = apstra_template_rack_based.Stage3_Template_hl1.id
 	}
 
@@ -687,36 +687,36 @@ resource "apstra_ipv4_pool" "spine_leaf_link_ips_hl1" {
 	}
 
 resource "apstra_datacenter_resource_pool_allocation" "spine_asns" {
-		blueprint_id = apstra_datacenter_blueprint.3stage-testdrive_hl1.id
+		blueprint_id = apstra_datacenter_blueprint.stage3-testdrive_hl1.id
 		role = "spine_asns"
 		pool_ids = [apstra_asn_pool.spine_asns_hl1.id]
 	}
 
 resource "apstra_datacenter_resource_pool_allocation" "leaf_asns" {
-		blueprint_id = apstra_datacenter_blueprint.3stage-testdrive_hl1.id
+		blueprint_id = apstra_datacenter_blueprint.stage3-testdrive_hl1.id
 		role = "leaf_asns"
 		pool_ids = [apstra_asn_pool.leaf_asns_hl1.id]
 	}
 
 resource "apstra_datacenter_resource_pool_allocation" "leaf_loopback_ips" {
-		blueprint_id = apstra_datacenter_blueprint.3stage-testdrive_hl1.id
+		blueprint_id = apstra_datacenter_blueprint.stage3-testdrive_hl1.id
 		role = "leaf_loopback_ips"
 		pool_ids = [apstra_ipv4_pool.leaf_loopback_ips_hl1.id]
 	}
 
 resource "apstra_datacenter_resource_pool_allocation" "spine_loopback_ips" {
-		blueprint_id = apstra_datacenter_blueprint.3stage-testdrive_hl1.id
+		blueprint_id = apstra_datacenter_blueprint.stage3-testdrive_hl1.id
 		role = "spine_loopback_ips"
 		pool_ids = [apstra_ipv4_pool.spine_loopback_ips_hl1.id]
 	}
 
 resource "apstra_datacenter_resource_pool_allocation" "spine_leaf_link_ips" {
-		blueprint_id = apstra_datacenter_blueprint.3stage-testdrive_hl1.id
+		blueprint_id = apstra_datacenter_blueprint.stage3-testdrive_hl1.id
 		role = "spine_leaf_link_ips"
 		pool_ids = [apstra_ipv4_pool.spine_leaf_link_ips_hl1.id]
 	}
 
 output "print_bluePrint_id" {
-		value = apstra_datacenter_blueprint.3stage-testdrive_hl1.id
+		value = apstra_datacenter_blueprint.stage3-testdrive_hl1.id
 	}
 
