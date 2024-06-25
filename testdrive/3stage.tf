@@ -10,7 +10,7 @@ terraform {
 	
 	# Apstra Provider Details
 	provider "apstra" {
-		# url                    = "https://username:password@127.0.0.1:3832/" 
+		url                    = "https://admin:$ECurity01!!@10.28.176.3" 
 		tls_validation_disabled = true   # optional
 		blueprint_mutex_enabled = false
 		experimental 			= true
