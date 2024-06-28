@@ -1,6 +1,6 @@
 
 data "apstra_datacenter_blueprint" "POD1" {
-  name = "DC-1"
+  name = "Cisco-DC1"
 }
 
   resource "apstra_datacenter_routing_zone" "BLUE-VRF" {
