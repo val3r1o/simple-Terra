@@ -32,5 +32,7 @@ data "apstra_datacenter_systems" "leafs" {
     routing_zone_id              = apstra_datacenter_routing_zone.blue.id
     ipv4_connectivity_enabled    = true
     ipv4_virtual_gateway_enabled = true
+    reserve_vlan                 = 10
+    vni                          = 10000010
     bindings                     = data.apstra_datacenter_virtual_network_binding_constructor.vnet_bindng_constructor.bindings
   }
