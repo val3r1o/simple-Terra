@@ -26,13 +26,13 @@ data "apstra_datacenter_systems" "leafs" {
   }
 
   resource "apstra_datacenter_virtual_network" "app_networks" {
-    name                         = "terraa-vni"
+    name                         = "terra-vni"
     blueprint_id                 = data.apstra_datacenter_blueprint.terra.id
     type                         = "vxlan"
     routing_zone_id              = apstra_datacenter_routing_zone.blue.id
     ipv4_connectivity_enabled    = true
     ipv4_virtual_gateway_enabled = true
-    reserve_vlan                 = yes
+    reserve_vlan                 = "yes"
     vni                          = 10000010
     bindings                     = data.apstra_datacenter_virtual_network_binding_constructor.vnet_bindng_constructor.bindings
   }
