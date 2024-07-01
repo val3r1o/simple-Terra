@@ -9,10 +9,16 @@ resource "apstra_datacenter_routing_zone" "BLUEVRF" {
   vni          = 10003900
 }
 
+resource "apstra_ipv4_pool" "LOOPBACK" {
+  name = "Leaf_Loop_Back"
+  subnets = [
+    { network = "172.16.10.0/24"},
+}
+
 resource "apstra_datacenter_resource_pool_allocation" "BLUELOOP" {
   blueprint_id = data.apstra_datacenter_blueprint.POD1.id
   routing_zone_id = apstra_datacenter_routing_zone.BLUEVRF.id
-  pool_ids        = ["172.16.0.0/12"]
+  pool_ids        = data.apstra_ipv4_pool.LOOPBACK.id
   role            = "leaf_loopback_ips"
 }
 
