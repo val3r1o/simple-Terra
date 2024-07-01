@@ -3,11 +3,11 @@ data "apstra_datacenter_blueprint" "POD1" {
   name = "Cisco-DC1"
 }
 
-  resource "apstra_datacenter_routing_zone" "BLUE-VRF" {
-    name         = "blue-terra"
-    blueprint_id = data.apstra_datacenter_blueprint.POD1.id
-    vni          = 500010
-  }
+resource "apstra_datacenter_routing_zone" "BLUE-VRF" {
+  name         = "blue-terra"
+  blueprint_id = data.apstra_datacenter_blueprint.POD1.id
+  vni          = 500010
+}
 
 data "apstra_datacenter_systems" "LEAVES" {
     blueprint_id = data.apstra_datacenter_blueprint.POD1.id
