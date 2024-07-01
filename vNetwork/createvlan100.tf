@@ -34,5 +34,6 @@ resource "apstra_datacenter_virtual_network" "VLAN100" {
   ipv4_virtual_gateway_enabled = true
   ipv4_virtual_gateway         = "10.0.100.1"
   ipv4_subnet                  = "10.0.100.0/24"
+  vni                          = 10000100
   bindings = data.apstra_datacenter_virtual_network_binding_constructor.VNETBIND.bindings
 }
