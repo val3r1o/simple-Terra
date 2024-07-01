@@ -10,17 +10,18 @@ resource "apstra_datacenter_routing_zone" "BLUEVRF" {
 }
 
 resource "apstra_ipv4_pool" "LOOPBACK" {
-  name = "Leaf_Loopback_terra"
-  subnets = [
-    { network = "172.16.10.0/24"},
+  name         = "Leaf_Loopback_terra"
+  subnets      = [
+    { network  = "172.16.10.0/24"},
 ]
 }
 
 resource "apstra_datacenter_resource_pool_allocation" "BLUELOOP" {
-  blueprint_id = data.apstra_datacenter_blueprint.POD1.id
+  blueprint_id    = data.apstra_datacenter_blueprint.POD1.id
   routing_zone_id = apstra_datacenter_routing_zone.BLUEVRF.id
   pool_ids        = data.apstra_ipv4_pool.LOOPBACK.id
-  role            = "leaf_loopback_ips"
+  # role            = "leaf_loopback_ips"
+  role            = "Leaf_Loopback_terra"
 }
 
 data "apstra_datacenter_systems" "LEAVES" {
