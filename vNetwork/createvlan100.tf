@@ -2,11 +2,18 @@ data "apstra_datacenter_blueprint" "POD1" {
   name = "Cisco-DC1"
 }
 
-resource "apstra_datacenter_routing_zone" "BLUE-VRF" {
+resource "apstra_datacenter_routing_zone" "BLUEVRF" {
   name         = "blue-terra"
   blueprint_id = data.apstra_datacenter_blueprint.POD1.id
   vlan_id      = 3900
   vni          = 10003900
+}
+
+resource "apstra_datacenter_resource_pool_allocation" "BLUELOOP" {
+  blueprint_id = data.apstra_datacenter_blueprint.POD1.id
+  routing_zone_id = apstra_datacenter_routing_zone.BLUEVRF.id
+  pool_ids        = ["172.16.10.0/24"]
+  role            = "leaf_loopback_ips"
 }
 
 data "apstra_datacenter_systems" "LEAVES" {
@@ -29,7 +36,7 @@ resource "apstra_datacenter_virtual_network" "VLAN100" {
   name                         = "vxlan-100-blue"
   blueprint_id                 = data.apstra_datacenter_blueprint.POD1.id
   type                         = "vxlan"
-  routing_zone_id              = apstra_datacenter_routing_zone.BLUE-VRF.id
+  routing_zone_id              = apstra_datacenter_routing_zone.BLUEVRF.id
   ipv4_connectivity_enabled    = true
   ipv4_virtual_gateway_enabled = true
   ipv4_virtual_gateway         = "10.0.100.1"
