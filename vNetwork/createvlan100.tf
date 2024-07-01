@@ -12,7 +12,7 @@ resource "apstra_datacenter_routing_zone" "BLUEVRF" {
 resource "apstra_datacenter_resource_pool_allocation" "BLUELOOP" {
   blueprint_id = data.apstra_datacenter_blueprint.POD1.id
   routing_zone_id = apstra_datacenter_routing_zone.BLUEVRF.id
-  pool_ids        = ["172.16.10.0/24"]
+  pool_ids        = ["172.16.0.0/12"]
   role            = "leaf_loopback_ips"
 }
 
