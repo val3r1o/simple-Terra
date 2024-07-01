@@ -10,9 +10,10 @@ resource "apstra_datacenter_routing_zone" "BLUEVRF" {
 }
 
 resource "apstra_ipv4_pool" "LOOPBACK" {
-  name = "Leaf_Loop_Back"
+  name = "Leaf_Loopback_terra"
   subnets = [
     { network = "172.16.10.0/24"},
+]
 }
 
 resource "apstra_datacenter_resource_pool_allocation" "BLUELOOP" {
