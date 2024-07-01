@@ -1,6 +1,6 @@
 
 data "apstra_datacenter_blueprint" "terra" {
-  name = "dc1"
+  name = "Cisco-DC1"
 }
 
   resource "apstra_datacenter_routing_zone" "blue" {
